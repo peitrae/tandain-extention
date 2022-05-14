@@ -1,0 +1,27 @@
+@use '../../styles/colors' as c
+@use '../../styles/typhographies' as t
+
+.Popup
+  width: 228px
+  padding: 1rem
+  border-radius: 0.5rem
+  background-color: c.$white
+  display: flex
+  flex-direction: column
+  gap: 1.5rem
+
+  .Progress
+    width: 100%
+    padding: 0.5rem 0.75rem
+    border-radius: 0.5rem
+    background-color: c.$gray-lighter200
+    display: flex
+    gap: 0.75rem
+    align-items: center
+
+    &Spinner
+      width: 1.5rem
+      height: 1.5rem
+
+    &Text
+      font-weight: t.$semibold

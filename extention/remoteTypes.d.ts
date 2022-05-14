@@ -3,3 +3,10 @@ declare module 'tandainClient/Button' {
 
 	export default Button;
 }
+
+declare module 'tandainClient/Spinner' {
+	const Spinner: any;
+
+	export default Spinner;
+}
+
