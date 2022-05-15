@@ -10,3 +10,21 @@ declare module 'tandainClient/Spinner' {
 	export default Spinner;
 }
 
+declare module 'tandainClient/TrashIcon' {
+	const TrashIcon: any;
+
+	export default TrashIcon;
+}
+
+declare module 'tandainClient/CheckmarkIcon' {
+	const CheckmarkIcon: any;
+
+	export default CheckmarkIcon;
+}
+
+declare module 'tandainClient/Title' {
+	const CheckmarkIcon: any;
+
+	export default CheckmarkIcon;
+}
+
