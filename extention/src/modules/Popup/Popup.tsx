@@ -5,15 +5,13 @@ import SavingProgress from './SavingProgress';
 import SavedProgress from './SavedProgress';
 import SavedItem from './SavedItem';
 
-import image from '../../../public/temp/item-img.png'
-
 const Popup = () => {
 	const item = {
 		id: 'title-7',
 		title: 'This is The Article Title',
 		sourceName: 'Medium',
 		sourceURL: 'www.medium.com',
-		imgURL: image,
+		imgURL: '/temp/item-img.png',
 	};
 
 	return (
