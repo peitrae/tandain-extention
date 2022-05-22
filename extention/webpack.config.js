@@ -1,8 +1,18 @@
 const path = require("path");
+const dotenv = require("dotenv");
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
+const webpack = require("webpack");
 
 const deps = require('./package.json').dependencies;
+
+// NOTE: Configure dotenv
+const env = dotenv.config().parsed
+const envKeys = Object.keys(env).reduce((prev, next) => {
+  prev[`process.env.${next}`] = JSON.stringify(env[next])
+  return prev
+}, {})
+
 module.exports = {
   entry: "/src/index.tsx",
 	output: {
@@ -59,8 +69,7 @@ module.exports = {
 			name: 'tandainExtention',
 			filename: 'remoteEntry.js',
 			remotes: {
-				tandainClient:
-					'tandainClient@http://localhost:3000/_next/static/chunks/remoteEntry.js',
+				tandainClient: `tandainClient@${env.CLIENT_URL}/_next/static/chunks/remoteEntry.js`
 			},
 			shared: {
 				...deps,
@@ -80,5 +89,6 @@ module.exports = {
 			manifest: './public/manifest.json',
 			favicon: './public/favicon.ico',
 		}),
+    new webpack.DefinePlugin(envKeys)
 	],
 };
